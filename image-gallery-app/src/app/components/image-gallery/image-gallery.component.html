@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <select class="form-select" (change)="onAuthorSelect($event.target.value)">
+          <option value="">Select an Author</option>
+          <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="row mt-4" *ngIf="filteredImages.length > 0">
+      <div class="col-md-12 text-center">
+        <img [src]="filteredImages[currentImageIndex].download_url" class="img-fluid" alt="Author image">
+        <p>Photo by: {{ filteredImages[currentImageIndex].author }}</p>
+  
+        <div class="pagination-controls mt-4">
+          <button class="btn btn-primary me-2" (click)="prevImage()" [disabled]="currentImageIndex === 0">Previous</button>
+          <button class="btn btn-primary" (click)="nextImage()" [disabled]="currentImageIndex === filteredImages.length - 1">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
