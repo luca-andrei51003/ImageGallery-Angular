@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../services/image-fetch.service'; // Adjust the path
-
+import { CommonModule } from '@angular/common';
 interface ImageData {
   author: string;
   download_url: string;
@@ -10,7 +10,8 @@ interface ImageData {
   selector: 'app-image-gallery',
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.css'],
-  standalone: true
+  standalone: true,
+  imports: [CommonModule]
 })
 export class ImageGalleryComponent implements OnInit {
   images: ImageData[] = [];

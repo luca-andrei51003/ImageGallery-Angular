@@ -6,13 +6,13 @@ import { ImageGalleryComponent } from './components/image-gallery/image-gallery.
 
 @NgModule({
   declarations: [
-    ImageGalleryComponent // Declare your non-standalone components
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule // Include HttpClientModule if you're making API calls
+    ImageGalleryComponent,
+    HttpClientModule
   ],
-  // No need for bootstrap array since AppComponent is standalone
 })
 export class AppModule { }
