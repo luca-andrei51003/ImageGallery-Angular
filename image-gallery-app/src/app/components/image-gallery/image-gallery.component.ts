@@ -9,7 +9,8 @@ interface ImageData {
 @Component({
   selector: 'app-image-gallery',
   templateUrl: './image-gallery.component.html',
-  styleUrls: ['./image-gallery.component.css']
+  styleUrls: ['./image-gallery.component.css'],
+  standalone: true
 })
 export class ImageGalleryComponent implements OnInit {
   images: ImageData[] = [];
@@ -23,15 +24,15 @@ export class ImageGalleryComponent implements OnInit {
   ngOnInit(): void {
     this.imageService.getImages().subscribe((data: ImageData[]) => {
       this.images = data;
-      this.authors = [...new Set(data.map(image => image.author))]; // Extract unique authors
+      this.authors = [...new Set(data.map(image => image.author))];
     });
   }
 
   onAuthorSelect(event: Event): void {
-    const target = event.target as HTMLSelectElement; // Safely cast to HTMLSelectElement
+    const target = event.target as HTMLSelectElement;
     this.selectedAuthor = target.value;
     this.filteredImages = this.images.filter(image => image.author === this.selectedAuthor);
-    this.currentImageIndex = 0; // Reset to the first image
+    this.currentImageIndex = 0;
   }
 
   nextImage(): void {

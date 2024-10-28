@@ -10,5 +10,5 @@ import { ImageGalleryComponent } from './components/image-gallery/image-gallery.
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'image-gallery-app';
+  title = 'app-image-gallery';
 }
